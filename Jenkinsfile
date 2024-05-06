@@ -17,6 +17,13 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        stage('Deployment Stage') {
+            steps {
+                withMaven(maven: 'maven') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
     }
 }
 
